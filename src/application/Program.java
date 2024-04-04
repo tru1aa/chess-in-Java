@@ -1,14 +1,13 @@
 package application;
 
-import boardsystem.Position;
+import mainsystem.Match;
 
 public class Program {
 
 	public static void main(String[] args) {
 		
-		Position pos = new Position(4, 5);
-		
-		System.out.println(pos);
+		Match match = new Match();
+		Interface.printBoard(match.getPieces());
 		
 	}
 
