@@ -1,6 +1,8 @@
 package mainsystem;
 
 import boardsystem.Board;
+import chesspieces.King;
+import chesspieces.Rook;
 
 public class Match {
 	
@@ -8,6 +10,7 @@ public class Match {
 	
 	public Match() {
 		board = new Board(8, 8);
+		initialSetup();
 	}
 	
 	public PieceMain[][] getPieces(){
@@ -20,4 +23,12 @@ public class Match {
 		return matriz;
 	}
 	
+	public void placeNewPiece(char column, int row, PieceMain piece) {
+		board.placePiece(piece, new PositionMain(column, row).toPosition());
+	}
+	
+	public void initialSetup() {
+		placeNewPiece('b', 6, new Rook(board, Color.WHITE));
+		placeNewPiece('h', 3, new King(board, Color.BLACK));
+	}
 }
